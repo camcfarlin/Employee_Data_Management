@@ -1,0 +1,15 @@
+.jumbotron {
+    background-color: black;
+    color: white;
+    text-align: center;
+    position: relative;
+    top: 0;
+}
+
+#display-3 {
+    top: 0;
+}
+
+#submit-employee {
+    float: right;
+}

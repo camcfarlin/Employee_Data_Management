@@ -69,6 +69,27 @@ database.ref().on("value", function(snapshot) {
       console.log(snapshot.val());
       
       let employees = snapshot.val();
+      $('#employees').empty();
+      
+    //   employees.forEach(function(emp){
+    //       console.log
+    //       let content = $('<tr>');
+    //       content.append(
+    //           `<th scope="col">${emp.name}</th>
+    //           <th scope="col">${emp.role}</th>
+    //           <th scope="col">${emp.start}</th>
+    //           <th scope="col">${emp.rate}</th>`
+    //       );
+    //       $('#employees').append(content);
+    //   });
+    //   <tr>
+    //                     <th scope="col">Employee Name</th>
+    //                     <th scope="col">Role</th>
+    //                     <th scope="col">Start Date</th>
+    //                     <th scope="col">Months Worked</th>
+    //                     <th scope="col">Monthly Rate (﹩)</th>
+    //                     <th scope="col">total Billed (﹩)</th>
+    //                     </tr>
       
       // Handle the errors
     }, function(errorObject) {
