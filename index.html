@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Employee Data Management</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    
+  </head>
+  <body>
+
+    <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-3">Employee Data Management</h1>
+                <p class="lead">A Comprehensive Database of Employee Billable Hours</p>
+        </div>
+    </div>
+    <div class="container">
+         <!-- Section 1 - Add Employee -->
+        <div class="row">
+        <form class="col-md-12" id="form">
+            <label><h2>Add Employee</h2></label>
+                <div class="form-group">
+                    <label for="employeeName">Employee Name:</label>
+                    <input type="text" class="form-control" id="employeeName" placeholder="John Smith">
+                </div>
+                <div class="form-group">
+                    <label for="role">Role:</label>
+                    <input type="text" class="form-control" id="role" placeholder="Junior Web Developer">
+                </div>
+                <div class="form-group">
+                    <label for="date">Start Date (MM/DD/YYYY)</label>
+                    <input type="text" class="form-control" id="date" placeholder="07/12/2018">
+                </div>
+                <div class="form-group">
+                    <label for="rate">Monthly Rate::</label>
+                    <input type="text" class="form-control" id="rate" placeholder="35000">
+                </div>
+                <button class="btn btn-primary" id='submit-employee'>Submit</button>                
+        </form>
+        </div>
+        <!-- Section 2 - Current Employee -->
+        <div class="row">
+            <div class="col-md-12">
+                <label><h2>Current Employees</h2></label>
+                    <table class="table table-hover">
+                    <thead>
+                        <tr>
+                        <th scope="col">Employee Name</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Start Date</th>
+                        <th scope="col">Months Worked</th>
+                        <th scope="col">Monthly Rate (﹩)</th>
+                        <th scope="col">total Billed (﹩)</th>
+                        </tr>
+                    </thead>
+                    <!-- Data -->
+                    <tbody>
+                        <tr>
+                        <td scope="row">Mark</td>
+                        <td>Sr. Web Developer</td>
+                        <td>10/20/2000</td>
+                        <td>542</td>
+                    </tr>
+                    </tbody>
+                    </table>
+            </div>
+        </div>                                                            
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    </body>
+</html>
