@@ -2,7 +2,7 @@
  * App logic
  */
 // Listen for button clicks
-
+var employees;
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyAKfkwuzBib0i8KbtEKszOuzGOEqpzv4yU",
@@ -68,20 +68,28 @@ database.ref().on("value", function(snapshot) {
       // Log everything that's coming out of snapshot
       console.log(snapshot.val());
       
-      let employees = snapshot.val();
+      employees = snapshot.val();
+      console.log('DB Variable');
+      console.log(employees);
       $('#employees').empty();
       
-    //   employees.forEach(function(emp){
-    //       console.log
-    //       let content = $('<tr>');
-    //       content.append(
-    //           `<th scope="col">${emp.name}</th>
-    //           <th scope="col">${emp.role}</th>
-    //           <th scope="col">${emp.start}</th>
-    //           <th scope="col">${emp.rate}</th>`
-    //       );
-    //       $('#employees').append(content);
-    //   });
+
+    // newRow = $("#employees");
+    //     (newRow).append("<tr><td>" + employee[0].name + "</td></tr>")
+    let keys = Object.keys(employees);
+      for(let i = 0; i < employees.length; i++){
+          let key = keys[i];
+          let emp = employees[key];
+          console.log(emp)
+          let content = $('<tr>');
+          content.append(
+              '<td scope="col">' + emp.name + '</td>' + 
+              '<td scope="col">'+ emp.role+'</td>' + 
+              '<td scope="col">' + emp.start + '</td>' + 
+              '<td scope="col">' + emp.rate + '</td>'
+          );
+          $('#employees').append(content);
+      }
     //   <tr>
     //                     <th scope="col">Employee Name</th>
     //                     <th scope="col">Role</th>
