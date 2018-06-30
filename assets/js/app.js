@@ -86,35 +86,20 @@ database.ref().on("value", function(snapshot) {
           console.log(emp)
           let content = $('<tr>');
           let startDate = new Date(emp.start);
-          let monthsWorked = moment(startDate).diff(moment(), "months")*-1;  
+          let monthsWorked = moment(startDate).diff(moment(), "months")*-1;
+          let rate = emp.rate.toLocaleString('en-US', {style: 'currency', currency:'USD'});
           content.html(
               '<td scope="col">' + emp.name + '</td>' + 
               '<td scope="col">'+ emp.role + '</td>' +
               '<td scope="col">' + emp.start + '</td>' +
               '<td scope="col">'+ monthsWorked + '</td>' + 
               '<td scope="col">' + (emp.rate * monthsWorked).toString() + '</td>' + 
-              '<td scope="col">' + emp.rate + '</td>'
+              '<td scope="col">' + rate + '</td>'
      
           );
-        //   <th scope="col">Employee Name</th>
-        //                 <th scope="col">Role</th>
-        //                 <th scope="col">Start Date</th>
-        //                 <th scope="col">Months Worked</th>
-        //                 <th scope="col">Monthly Rate (﹩)</th>
-        //                 <th scope="col">total Billed (﹩)</th>
           console.log(content.html());
           $('#employees').append(content);
       }
-    //   <tr>
-    //                     <th scope="col">Employee Name</th>
-    //                     <th scope="col">Role</th>
-    //                     <th scope="col">Start Date</th>
-    //                     <th scope="col">Months Worked</th>
-    //                     <th scope="col">Monthly Rate (﹩)</th>
-    //                     <th scope="col">total Billed (﹩)</th>
-    //                     </tr>
-      
-      // Handle the errors
     }, function(errorObject) {
       console.log("Errors handled: " + errorObject.code);
     });
