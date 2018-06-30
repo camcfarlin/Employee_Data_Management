@@ -58,11 +58,14 @@ function fillTable(employee){
     let row = $('<tr>');
     let name = $('<td>').text(employee.name);
     let role = $('<td>').text(employee.role);
+    
     let start = $('<td>').text(employee.start);
+
     let months = $('<td>').text(999);
     let rate = $('<td>').text(employee.rate);
     let total = $('<td>').text('$9999999.00');
 }
+
 database.ref().on("value", function(snapshot) {
 
       // Log everything that's coming out of snapshot
@@ -72,22 +75,28 @@ database.ref().on("value", function(snapshot) {
       console.log('DB Variable');
       console.log(employees);
       $('#employees').empty();
-      
-
-    // newRow = $("#employees");
-    //     (newRow).append("<tr><td>" + employee[0].name + "</td></tr>")
     let keys = Object.keys(employees);
-      for(let i = 0; i < employees.length; i++){
+    console.log(keys);
+      for(let i = 0; i < keys.length; i++){
           let key = keys[i];
           let emp = employees[key];
+          
           console.log(emp)
           let content = $('<tr>');
-          content.append(
+          content.html(
               '<td scope="col">' + emp.name + '</td>' + 
               '<td scope="col">'+ emp.role+'</td>' + 
               '<td scope="col">' + emp.start + '</td>' + 
               '<td scope="col">' + emp.rate + '</td>'
+
           );
+        //   <th scope="col">Employee Name</th>
+        //                 <th scope="col">Role</th>
+        //                 <th scope="col">Start Date</th>
+        //                 <th scope="col">Months Worked</th>
+        //                 <th scope="col">Monthly Rate (﹩)</th>
+        //                 <th scope="col">total Billed (﹩)</th>
+          console.log(content.html());
           $('#employees').append(content);
       }
     //   <tr>
