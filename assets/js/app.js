@@ -35,7 +35,9 @@ function collectForm(e){
     let role = $('#role').val();
     let date = $('#date').val();
     let rate = $('#rate').val();
-
+    // date = new Date(date);
+    console.log('Date');
+    console.log(date);
     let employeeObj = {
         name: name,
         role: role,
@@ -83,12 +85,16 @@ database.ref().on("value", function(snapshot) {
           
           console.log(emp)
           let content = $('<tr>');
+          let startDate = new Date(emp.start);
+          let monthsWorked = moment(startDate).diff(moment(), "months")*-1;  
           content.html(
               '<td scope="col">' + emp.name + '</td>' + 
-              '<td scope="col">'+ emp.role+'</td>' + 
-              '<td scope="col">' + emp.start + '</td>' + 
+              '<td scope="col">'+ emp.role + '</td>' +
+              '<td scope="col">' + emp.start + '</td>' +
+              '<td scope="col">'+ monthsWorked + '</td>' + 
+              '<td scope="col">' + (emp.rate * monthsWorked).toString() + '</td>' + 
               '<td scope="col">' + emp.rate + '</td>'
-
+     
           );
         //   <th scope="col">Employee Name</th>
         //                 <th scope="col">Role</th>
